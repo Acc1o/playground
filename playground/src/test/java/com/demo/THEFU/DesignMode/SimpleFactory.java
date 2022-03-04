@@ -14,6 +14,7 @@ public class SimpleFactory {
     public void test(){
         Chart chart = ChartFactory.createChart("pie");
         chart.display();
+
     }
 
 }

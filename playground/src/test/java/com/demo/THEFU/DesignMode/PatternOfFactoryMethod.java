@@ -6,67 +6,63 @@ import org.junit.jupiter.api.Test;
  * @author ：THEFU
  * @date ：Created in 2022/3/4 15:32
  * @description：工厂方法模式
+ * 弥补了简单工厂模式  缺点  ，增加新产品 无须修改抽象工厂 和 抽象产品的接口 ，
+ * 也无须修改具体工厂和具体产品，只需要再新增一个工厂和接口就可以了，完全符合“开闭原则”
+ * 缺点：每增加一个产品 就要成对增加类，增加了系统复杂度和系统开销
  * @version: 1.0
  */
 public class PatternOfFactoryMethod {
     @Test
     public void test(){
-        Chart chart = ChartFactory.createChart("pie");
-        chart.display();
+        LoggerFactory loggerFactory = new DataBaseLoggerFactory();
+        Logger logger = loggerFactory.createLogger();
+        logger.writeLog();
     }
 
 }
-
 /**
- * 图表工厂  创建抽象图表具体产品都是通过这个类
+ * 抽象日志接口
  */
-class ChartFactory{
-
-    public static Chart createChart(String type){
-        Chart chart = null;
-        if(type.equalsIgnoreCase("histogram")){
-            chart = new HistogramChart();
-        }else if(type.equalsIgnoreCase("pie")){
-            chart = new PieChart();
-        }
-        return chart;
-    }
-}
-
-
-/**
- * 抽象图表接口
- */
-interface Chart{
-    void display();
+interface Logger{
+    void writeLog();
 }
 
 /**
- * 柱状图 作为Chart的具体产品类
+ * 数据库日志 作为日志的具体产品类
  */
-class HistogramChart implements Chart{
-
-    public HistogramChart(){
-        System.out.println("创建柱状图");
-    }
+class DataBaseLogger implements Logger{
 
     @Override
-    public void display() {
-        System.out.println("展示柱状图");
+    public void writeLog() {
+        System.out.println("数据库日志记录");
     }
 }
 
 /**
- * 饼状图 作为Chart的具体产品类
+ * 文件日志 作为日志的具体产品类
  */
-class PieChart implements Chart{
-
-    public PieChart(){
-        System.out.println("创建饼状图");
-    }
+class FileLogger implements Logger{
 
     @Override
-    public void display() {
-        System.out.println("展示饼状图");
+    public void writeLog() {
+        System.out.println("文件日志记录");
+    }
+}
+
+interface LoggerFactory{
+    Logger createLogger();
+}
+
+class DataBaseLoggerFactory implements LoggerFactory{
+    @Override
+    public Logger createLogger() {
+        return new DataBaseLogger();
+    }
+}
+
+class FileLoggerFactory implements LoggerFactory{
+    @Override
+    public Logger createLogger() {
+        return new FileLogger();
     }
 }
