@@ -1,0 +1,12 @@
+spring:
+  mvc:
+    static-path-pattern: /**
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
