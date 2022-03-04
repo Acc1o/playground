@@ -1,20 +1,24 @@
 package com.demo.controller;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * @author ：THEFU
+ * @date ：Created in 2022/3/4 14:12
+ * @description：
+ * @version: 1.0
+ */
 @Controller
 @RequestMapping("demo")
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class DemoController {
 
     @ResponseBody
-    @GetMapping("demo")
+    @GetMapping("show")
     public String show(){
-        return "文物小狗！";
+        return "文武小狗！";
     }
 }
+
