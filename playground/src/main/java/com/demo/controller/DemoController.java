@@ -20,5 +20,11 @@ public class DemoController {
     public String show(){
         return "文武小狗！";
     }
+
+    @ResponseBody
+    @GetMapping("showAll")
+    public String showAll(){
+        return "<h1 style='color:red'>都是小狗！</h1>";
+    }
 }
 
