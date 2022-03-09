@@ -4,9 +4,17 @@ spring:
   web:
     resources:
       static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+# 允许IOC循环依赖引用
+  main:
+    allow-circular-references: true
 
 
 server:
   port: 8080
   servlet:
     context-path: /
+
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    path: ./logs
