@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="showMessage">
+
+</div>
+<div id="addMessage">
+    姓名：<input type="text" name="namer" /><br>
+    内容：<textarea style="height:100px;width:100%" name="content"> </textarea><br>
+    <input type="button" id="sendmessage" value="发送">
+</div>
+
+</body>
+<script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(function() {
+        //连接Socket的URL地址
+        var wsurl = "ws://127.0.0.1:8082/html/index.html";
+        var websocket; //用于存放客户端创建的Socket对象
+        if (window.WebSocket) {
+            websocket = new WebSocket(wsurl);
+            websocket.onopen = function(event) {
+                //onopen事件，连接成功
+                $('#showMessage').append("<p>conneted success!</p>");
+            }
+            websocket.onmessage = function(event) {
+                //onmessage事件，接收消息，显示在页面上
+                var msg = JSON.parse(event.data);
+                var type = msg.type;
+                var namer = msg.namer;
+                var content = msg.content;
+                if (type == 'usermsg') {
+                    $('#showMessage').append("<p>" + namer + ":" + content + "</p>");
+                } else {
+                    $('#showMessage').append("<p>system:" + content + "</p>");
+                }
+            }
+            //数据发送
+            function send() {
+                var namer = $("[name='namer']").val();
+                var content = $("[name='content']").val();
+                if (namer == '') {
+                    alert('请输入名称');
+                    return false;
+                }
+                if (content == '') {
+                    alert('请输入内容');
+                    return false;
+                }
+                var msg = {
+                    namer: namer,
+                    content: content
+                };
+                websocket.send(JSON.stringify(msg));
+            }
+            $("#sendmessage").bind('click', send);
+        }
+    })
+</script>
+</html>

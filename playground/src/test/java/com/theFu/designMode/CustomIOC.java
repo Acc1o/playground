@@ -1,7 +1,7 @@
-package com.demo.theFu.designMode;
+package com.theFu.designMode;
 
 import com.alibaba.fastjson.JSONObject;
-import com.demo.theFu.model.User;
+import com.theFu.model.User;
 import org.apache.shiro.io.ResourceUtils;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -13,10 +13,7 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

@@ -1,4 +1,4 @@
-package com.demo.theFu.model;
+package com.theFu.model;
 
 /**
  * @author ：THEFU
