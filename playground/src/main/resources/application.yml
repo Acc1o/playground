@@ -1,4 +1,7 @@
 spring:
+  messages:
+    basename: i18n.login
+    encoding: UTF-8
   mvc:
     static-path-pattern: /**
 #    view:
