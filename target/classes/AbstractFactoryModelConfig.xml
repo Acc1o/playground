@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<!--抽象工厂模式 测试xml-->
+<config>
+    <className>com.playground.theFu.designMode.SpringSkinFactory</className>
+</config>
