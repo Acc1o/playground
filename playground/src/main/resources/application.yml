@@ -1,12 +1,21 @@
 spring:
+  messages:
+    basename: i18n.login
+    encoding: UTF-8
   mvc:
     static-path-pattern: /**
+#    view:
+#      prefix: /
+#      suffix: .html
   web:
     resources:
       static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
 # 允许IOC循环依赖引用
   main:
     allow-circular-references: true
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,7 +24,7 @@ spring:
     password: 1157436060
 
 server:
-  port: 8080
+  port: 8082
   servlet:
     context-path: /
 

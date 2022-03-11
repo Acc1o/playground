@@ -1,4 +1,4 @@
-package com.demo.THEFU.DesignMode;
+package com.theFu.designMode;
 
 import org.junit.jupiter.api.Test;
 
