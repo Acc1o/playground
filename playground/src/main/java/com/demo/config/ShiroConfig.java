@@ -1,6 +1,7 @@
 package com.demo.config;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-public class MyShiro {
+public class ShiroConfig {
 
     @Bean
     public HashedCredentialsMatcher getHashedCredentialsMatcher(){
@@ -20,6 +21,11 @@ public class MyShiro {
         return  matcher;
     }
 
-
+    /*@Bean
+    public SecurityManager securityManager() {
+        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        securityManager.setRealm(CustomRealm());
+        return securityManager;
+    }*/
 
 }

@@ -54,7 +54,7 @@ export default {
         if(valid){
           this.logining = true;
           console.log(this.ruleForm2)
-          this.$axios.post("/api/playground/login",this.ruleForm2).then(res =>{
+          this.$axios.post("/api/loginController/login",this.ruleForm2).then(res =>{
             console.log(res)
           })
         }else{

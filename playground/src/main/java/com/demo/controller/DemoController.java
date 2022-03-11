@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * @version: 1.0
  */
 @RestController
-@RequestMapping("/playground")
+@RequestMapping("/demo")
 public class DemoController {
 
     @GetMapping("/show")
@@ -22,14 +22,6 @@ public class DemoController {
     @GetMapping("/showAll")
     public String showAll(){
         return "<h1 style='color:red'>都是小狗！</h1>";
-    }
-
-    @PostMapping("/login")
-    public String login(@RequestBody User user){
-
-        System.err.println(user);
-
-        return "2333";
     }
 
 }
