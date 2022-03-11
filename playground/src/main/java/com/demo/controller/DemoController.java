@@ -1,9 +1,8 @@
 package com.demo.controller;
 
+import com.demo.pojo.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author ：THEFU
@@ -11,20 +10,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @description：
  * @version: 1.0
  */
-@Controller
-@RequestMapping("demo")
+@RestController
+@RequestMapping("/demo")
 public class DemoController {
 
-    @ResponseBody
-    @GetMapping("show")
+    @GetMapping("/show")
     public String show(){
         return "文武小狗！";
     }
 
-    @ResponseBody
-    @GetMapping("showAll")
+    @GetMapping("/showAll")
     public String showAll(){
         return "<h1 style='color:red'>都是小狗！</h1>";
     }
+
 }
 
