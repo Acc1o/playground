@@ -22,4 +22,9 @@ public class DefaultController {
     public String socket(Model model){
         return "/html/socket.html";
     }
+
+    @RequestMapping("/httpStatus")
+    public String httpStatus(Model model){
+        return "/html/http_status.html";
+    }
 }

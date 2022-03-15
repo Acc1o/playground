@@ -28,6 +28,7 @@ server:
   servlet:
     context-path: /
 
+#配置日志
 logging:
   config: classpath:logback-spring.xml
   file:

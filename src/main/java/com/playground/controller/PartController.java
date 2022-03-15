@@ -7,12 +7,11 @@ import com.ejlchina.searcher.util.MapUtils;
 import com.playground.pojo.HttpStatus;
 import com.playground.pojo.User;
 import com.playground.service.HttpStatusService;
+import com.sun.org.glassfish.gmbal.ParameterNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -32,10 +31,9 @@ public class PartController {
     private BeanSearcher beanSearcher;
 
 
-    @GetMapping("/tool1")
-    public SearchResult<Map<String, Object>> http_code(HttpServletRequest request){
-
-        SearchResult<Map<String, Object>> search = mapSearcher.search(HttpStatus.class, MapUtils.flat(request.getParameterMap()));
+    @PostMapping("/tool1")
+    public SearchResult<Map<String, Object>> http_code(HttpServletRequest request,@RequestParam Map<String,Object> map){
+        SearchResult<Map<String, Object>> search = mapSearcher.search(HttpStatus.class, map);
         return search;
     }
 }

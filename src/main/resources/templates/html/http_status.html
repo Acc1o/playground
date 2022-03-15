@@ -2,17 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" th:src="@{../js/jquery-3.6.0.js}"></script>
     <title>Title</title>
 </head>
 <body>
+<p id="p"></p>
+
 <table>
     <th>状态码</th>
     <th>原因短语</th>
     <th>代表含义</th>
     <th>HTTP 版本</th>
-    <tr th:each="">
+<!--    <tr th:each="">-->
 
-    </tr>
+<!--    </tr>-->
+
 </table>
 </body>
+<script>
+    $(function (){
+        $.ajax({
+            url: "/tool1",
+            type: "post",
+            data: {status_code: 100},
+            dataType:"Json",
+            contentType:"application/x-www-form-urlencoded",
+            success:function (result){
+                debugger
+                $("#p").html(result.dataList[0].cause_info);
+            }
+        })
+    })
+</script>
 </html>
