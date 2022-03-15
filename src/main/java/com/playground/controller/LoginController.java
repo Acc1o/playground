@@ -23,16 +23,16 @@ public class LoginController {
 
         System.err.println(user);
 
-        System.err.println("原密码：" + user.getPassword());
+        System.err.println("原密码：" + user.getPwd());
 
-        Md5Hash md5Hash = new Md5Hash(user.getPassword());
+        Md5Hash md5Hash = new Md5Hash(user.getPwd());
         System.err.println("MD5加密：" + md5Hash.toHex());
 
 
         //加盐加密
         String num=(new Random().nextInt(90000) + 10000) + "";
         System.err.println("盐：" + num);
-        Md5Hash md5Hash1 = new Md5Hash(user.getPassword(),num);
+        Md5Hash md5Hash1 = new Md5Hash(user.getPwd(),num);
         System.err.println("加盐加密：" + md5Hash1);
 
 

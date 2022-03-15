@@ -70,6 +70,23 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.41</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+        <!-- Bean Searcher 核心依赖，任何框架都可使用该依赖 -->
+        <dependency>
+            <groupId>com.ejlchina</groupId>
+            <artifactId>bean-searcher</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        <!-- SpringBoot / Grails 的项目直接使用以下依赖，更为方便（只添加这一个依赖即可） -->
+        <dependency>
+            <groupId>com.ejlchina</groupId>
+            <artifactId>bean-searcher-boot-starter</artifactId>
+            <version>3.5.1</version>
+        </dependency>
 
     </dependencies>
 

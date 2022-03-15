@@ -35,7 +35,8 @@ public class SocketThread extends Thread {
             bufferedReader = new BufferedReader(inputStreamReader);
 
             String info = null;
-
+            outputStream = socket.getOutputStream();
+            printWriter = new PrintWriter(outputStream);
             while ((info = bufferedReader.readLine()) != null) {
                 System.out.println("我是服务器：客户端说：" + info);
             }

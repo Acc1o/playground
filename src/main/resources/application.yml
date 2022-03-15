@@ -19,9 +19,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/superj?serverTimezone=GMT%2B8
+    url: jdbc:mysql://114.55.224.161:3306/Warehouse?serverTimezone=GMT%2B8
     username: root
-    password: 1157436060
+    password: root
 
 server:
   port: 8082

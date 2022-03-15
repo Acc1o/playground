@@ -17,4 +17,9 @@ public class DefaultController {
         model.addAttribute("name","刘强东");
         return "/html/index.html";
     }
+
+    @RequestMapping("/socket")
+    public String socket(Model model){
+        return "/html/socket.html";
+    }
 }

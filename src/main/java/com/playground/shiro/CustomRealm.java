@@ -41,8 +41,8 @@ public class CustomRealm  extends AuthorizingRealm {
         }
         AuthenticationInfo info=new SimpleAuthenticationInfo(
                 username,//当前用户用户名,跟上面的doGetAuthorizationInfo方法是对应的
-                user.getPassword(),//从数据库查询出来的安全密码
-                ByteSource.Util.bytes(user.getPasswordSalt()),//用户的密码是加了盐的
+                user.getPwd(),//从数据库查询出来的安全密码
+                ByteSource.Util.bytes(user.getPwd()),//用户的密码是加了盐的
                 getName());
         return info;
     }
