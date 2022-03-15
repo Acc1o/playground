@@ -6,6 +6,8 @@ import com.ejlchina.searcher.SearchResult;
 import com.ejlchina.searcher.util.MapUtils;
 import com.playground.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,4 +42,5 @@ public class UserController {
         // 一行代码，实现一个用户检索接口（MapUtils.flat 只是收集前端的请求参数）
         return mapSearcher.search(User.class, MapUtils.flat(request.getParameterMap()));
     }
+
 }

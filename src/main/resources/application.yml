@@ -22,6 +22,23 @@ spring:
     url: jdbc:mysql://114.55.224.161:3306/Warehouse?serverTimezone=GMT%2B8
     username: root
     password: root
+  redis:
+    host: 114.55.224.161
+    database: 0
+    port: 6379
+    password: 123456.
+    #连接超时时间（毫秒）
+    timeout: 5000
+    jedis:
+      pool:
+        #连接池最大连接数（使用负值表示没有限制）
+        max-active: 20
+        #连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1
+        #连接池中的最大空闲连接
+        max-idle: 10
+        #连接池中的最小空闲连接
+        min-idle: 1
 
 server:
   port: 8082
